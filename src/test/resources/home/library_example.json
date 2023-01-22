@@ -1,0 +1,9 @@
+{
+  "id": "3615",
+  "general_information": {
+    "title": "Red book",
+    "authors": ["Ivanov"]
+  },
+  "editions": ["1965", "1981", "2003", "2023"],
+  "genre": "Fantasy"
+}
