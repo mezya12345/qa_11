@@ -14,6 +14,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 public class HomeTest {
@@ -22,7 +23,7 @@ public class HomeTest {
     @Test
     void zipParseTest() throws Exception {
         try (
-                InputStream resources = cl.getResourceAsStream("home/home.zip");
+                InputStream resources = cl.getResourceAsStream("home/home1.zip");
                 ZipInputStream zis = new ZipInputStream(resources)
         ) {
             ZipEntry entry;
@@ -37,6 +38,8 @@ public class HomeTest {
                     CSVReader reader = new CSVReader(new InputStreamReader(zis));
                     List<String[]> content = reader.readAll();
                     assertThat(content.get(1)[2]).contains("Fantasy");
+                } else {
+                    fail("Ни одного указанного формата не нашлось");
                 }
             }
         }
